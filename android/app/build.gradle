@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "com.u3L1J.only_job"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "25.1.8937393" // changed to accomodate libs
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

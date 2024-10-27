@@ -1,6 +1,6 @@
 # OnlyJob
 
-A platform for finding jobs that is suited for your skills
+A platform for finding jobs that is suited for your skills.
 
 ## How to Run
 - install flutter
