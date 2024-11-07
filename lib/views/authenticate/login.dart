@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/authenticate/client_or_employee.dart';
-import 'package:only_job/views/authenticate/register_or_login.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'dart:developer';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/views/constants/loading.dart';
+//import 'package:job_findr/views/authenticate/client_or_employee.dart'; --not needed?
+//import 'package:job_findr/views/authenticate/register_or_login.dart'; --not needed?
+import 'package:job_findr/views/constants/constants.dart';
+//import 'dart:developer'; --not needed?
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/views/constants/loading.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key, required this.changePage});

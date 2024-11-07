@@ -1,14 +1,14 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/models/user.dart';
-import 'package:only_job/views/constants/loading.dart';
-import 'package:only_job/models/education.dart';
-import 'package:only_job/models/certification.dart';
-import 'package:only_job/models/experience.dart';
-import 'package:only_job/services/job_service.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/models/user.dart';
+import 'package:job_findr/views/constants/loading.dart';
+import 'package:job_findr/models/education.dart';
+import 'package:job_findr/models/certification.dart';
+import 'package:job_findr/models/experience.dart';
+import 'package:job_findr/services/job_service.dart';
 
 class ProfileScreen extends StatefulWidget {
   String? uid;
@@ -20,7 +20,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  late AuthService _auth;
+  late AuthService _auth; // --not needed?
   late UserService _applicantService;
   late UserData _applicantData;
   late List<Education>? _education;
@@ -155,7 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           for (var skill in _applicantData.skills!)
                             InfoCard(
                               icon: Icons.build_outlined,
-                              text: 'Skills: ${skill}',
+                              text: 'Skills: $skill',
                             ),
                     ],
                   ),
@@ -273,7 +273,7 @@ class InfoSection extends StatelessWidget {
   final String title;
   final List<Widget> children;
 
-  InfoSection({required this.title, required this.children});
+  const InfoSection({super.key, required this.title, required this.children});
 
   @override
   Widget build(BuildContext context) {
@@ -301,7 +301,7 @@ class InfoCard extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  InfoCard({required this.icon, required this.text});
+  const InfoCard({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {

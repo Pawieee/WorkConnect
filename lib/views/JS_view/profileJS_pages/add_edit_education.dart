@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/models/education.dart';
-import 'package:only_job/services/user_service.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/models/education.dart';
+import 'package:job_findr/services/user_service.dart';
 
 class AddEducationPage extends StatefulWidget {
   Education? education;
   String? uid;
 
-  AddEducationPage({Key? key, this.education, this.uid}) : super(key: key);
+  AddEducationPage({super.key, this.education, this.uid});
 
   @override
   _AddEducationPageState createState() => _AddEducationPageState();
@@ -233,7 +233,7 @@ class _AddEducationPageState extends State<AddEducationPage> {
       context: context,
       builder: (BuildContext context) {
         return Dialog(
-          child: Container(
+          child: SizedBox(
             height: 300,
             child: YearPicker(
               firstDate: DateTime(1900),

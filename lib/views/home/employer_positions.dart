@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/home/employer_homepage.dart';
-import 'package:only_job/views/home/employer_profile.dart';
-import 'package:only_job/views/home/job_details.dart';
-import 'package:only_job/views/home/job_opening.dart';
-import 'package:only_job/services/job_service.dart';
-import 'package:only_job/views/constants/loading.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/models/jobs.dart';
-import 'package:only_job/services/user_service.dart';
+import 'package:job_findr/views/constants/constants.dart';
+//import 'package:job_findr/views/home/employer_homepage.dart'; --not needed?
+//import 'package:job_findr/views/home/employer_profile.dart'; --not needed?
+import 'package:job_findr/views/home/job_details.dart';
+import 'package:job_findr/views/home/job_opening.dart';
+import 'package:job_findr/services/job_service.dart';
+import 'package:job_findr/views/constants/loading.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/models/jobs.dart';
+import 'package:job_findr/services/user_service.dart';
 
 class EmployerPositions extends StatefulWidget {
   const EmployerPositions({super.key});
@@ -19,7 +19,7 @@ class EmployerPositions extends StatefulWidget {
 
 class _EmployerPositionsState extends State<EmployerPositions> {
   late AuthService _auth;
-  int _currentIndex = 0;
+  final int _currentIndex = 0;
   late UserService _userService;
   late JobService _jobService;
 
@@ -63,8 +63,8 @@ class _EmployerPositionsState extends State<EmployerPositions> {
             MaterialPageRoute(builder: (context) => JobOpeningForm()),
           );
         },
-        child: const Icon(Icons.add),
         backgroundColor: accent2,
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -107,7 +107,7 @@ class _EmployerPositionsState extends State<EmployerPositions> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Job Title: ' + job.jobTitle!,
+                        'Job Title: ${job.jobTitle!}',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,

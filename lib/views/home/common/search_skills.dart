@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:developer';
+//import 'dart:developer'; --not needed?
 
-class SearchSkills extends SearchDelegate<String>{
+class SearchSkills extends SearchDelegate<String> {
   SearchSkills({required this.skills, required this.addSkills});
   List<String> skills;
   Function addSkills;
-  
+
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -27,10 +27,12 @@ class SearchSkills extends SearchDelegate<String>{
       },
     );
   }
-  
+
   @override
   Widget buildResults(BuildContext context) {
-    final results = skills.where((skill) => skill.toLowerCase().contains(query.toLowerCase())).toList();
+    final results = skills
+        .where((skill) => skill.toLowerCase().contains(query.toLowerCase()))
+        .toList();
 
     return ListView.builder(
       itemCount: results.length,
@@ -44,10 +46,12 @@ class SearchSkills extends SearchDelegate<String>{
       },
     );
   }
-  
+
   @override
   Widget buildSuggestions(BuildContext context) {
-    final suggestions = skills.where((skill) => skill.toLowerCase().contains(query.toLowerCase())).toList();
+    final suggestions = skills
+        .where((skill) => skill.toLowerCase().contains(query.toLowerCase()))
+        .toList();
 
     return ListView.builder(
       itemCount: suggestions.length,

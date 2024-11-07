@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/authenticate/register_or_login.dart';
-import 'package:only_job/views/home/home.dart';
+import 'package:job_findr/views/authenticate/register_or_login.dart';
+import 'package:job_findr/views/home/home.dart';
 import 'package:provider/provider.dart';
-import 'package:only_job/models/user.dart';
+import 'package:job_findr/models/user.dart';
 import 'dart:developer';
 
 class AuthGate extends StatefulWidget {

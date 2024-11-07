@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/constants/loading.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/views/constants/loading.dart';
 
 class SignUpForm extends StatefulWidget {
+  const SignUpForm({super.key});
+
   @override
   _SignUpFormState createState() => _SignUpFormState();
 }

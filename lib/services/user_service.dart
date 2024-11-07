@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:developer';
-import 'package:only_job/models/user.dart';
+import 'package:job_findr/models/user.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:http/http.dart' as http;
-import 'package:only_job/models/education.dart';
-import 'package:only_job/models/experience.dart';
-import 'package:only_job/models/certification.dart';
+import 'package:job_findr/models/education.dart';
+import 'package:job_findr/models/experience.dart';
+import 'package:job_findr/models/certification.dart';
 
 class UserService {
   UserService({required this.uid});
@@ -15,11 +15,12 @@ class UserService {
   final String uid;
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection('User');
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  //final FirebaseFirestore _firestore = FirebaseFirestore.instance; --not needed?
 
   DocumentReference get _userRef => userCollection.doc(uid);
 
-  final String defaultPfp = "https://firebasestorage.googleapis.com/v0/b/onlyjob-13c80.appspot.com/o/commons%2Fdefault.png?alt=media&token=fe3aaaea-0c8f-48ab-8103-2083ab52b4a5";
+  final String defaultPfp =
+      "https://firebasestorage.googleapis.com/v0/b/onlyjob-13c80.appspot.com/o/commons%2Fdefault.png?alt=media&token=fe3aaaea-0c8f-48ab-8103-2083ab52b4a5";
 
   Future addUser(String name, String? gender, DateTime? birthDate, String email,
       String phone, String address, bool isJobSeeker) async {
@@ -434,9 +435,8 @@ class UserService {
     try {
       final QuerySnapshot snapshot =
           await userCollection.doc(uid).collection('experience').get();
-      final List<Experience> experienceList = snapshot.docs
-          .map((doc) => Experience.fromDocument(doc))
-          .toList();
+      final List<Experience> experienceList =
+          snapshot.docs.map((doc) => Experience.fromDocument(doc)).toList();
       return experienceList;
     } catch (e) {
       log(e.toString());
@@ -496,9 +496,8 @@ class UserService {
     try {
       final QuerySnapshot snapshot =
           await userCollection.doc(uid).collection('certifications').get();
-      final List<Certification> certificationList = snapshot.docs
-          .map((doc) => Certification.fromDocument(doc))
-          .toList();
+      final List<Certification> certificationList =
+          snapshot.docs.map((doc) => Certification.fromDocument(doc)).toList();
       return certificationList;
     } catch (e) {
       log(e.toString());

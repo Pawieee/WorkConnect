@@ -1,6 +1,6 @@
-import 'package:only_job/models/education.dart';
-import 'package:only_job/models/experience.dart';
-import 'package:only_job/models/certification.dart';
+import 'package:job_findr/models/education.dart';
+import 'package:job_findr/models/experience.dart';
+import 'package:job_findr/models/certification.dart';
 
 class User {
   final String? uid;
@@ -22,26 +22,25 @@ class UserData {
   final String? website;
   final bool? isUserNew;
   final String? profilePicture;
-  List<dynamic>? skills; 
+  List<dynamic>? skills;
   List<Education>? education;
   List<Experience>? experience;
   List<Certification>? certifications;
 
-  UserData({
-    required this.uid,
-    required this.name,
-    required this.email,
-    required this.gender,
-    required this.birthDate,
-    required this.phone,
-    required this.address,
-    required this.isJobSeeker,
-    required this.website,
-    required this.isUserNew,
-    required this.profilePicture,
-    this.skills,
-    this.education,
-    this.experience,
-    this.certifications
-  });
+  UserData(
+      {required this.uid,
+      required this.name,
+      required this.email,
+      required this.gender,
+      required this.birthDate,
+      required this.phone,
+      required this.address,
+      required this.isJobSeeker,
+      required this.website,
+      required this.isUserNew,
+      required this.profilePicture,
+      this.skills,
+      this.education,
+      this.experience,
+      this.certifications});
 }

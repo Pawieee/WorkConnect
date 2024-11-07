@@ -1,9 +1,8 @@
-import 'package:flutter/foundation.dart';
+//import 'package:flutter/foundation.dart'; --not needed?
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:only_job/views/authenticate/client_or_employee.dart';
-import 'package:only_job/views/authenticate/login.dart';
-import 'package:only_job/views/constants/constants.dart';
+import 'package:job_findr/views/authenticate/client_or_employee.dart';
+import 'package:job_findr/views/authenticate/login.dart';
+import 'package:job_findr/views/constants/constants.dart';
 
 class RegisterLogin extends StatefulWidget {
   const RegisterLogin({super.key});

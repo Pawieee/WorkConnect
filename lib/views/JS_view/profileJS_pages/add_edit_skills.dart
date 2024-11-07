@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/services/retrieve_skills.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/views/constants/constants.dart';
+import 'package:job_findr/services/retrieve_skills.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/views/constants/constants.dart';
 
 class AddSkillsPage extends StatefulWidget {
   final List<String>? selectedSkills;
-  AddSkillsPage({this.selectedSkills = const []});
+  const AddSkillsPage({super.key, this.selectedSkills = const []});
 
   @override
   _AddSkillsPageState createState() => _AddSkillsPageState();

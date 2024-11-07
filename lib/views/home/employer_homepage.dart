@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/home/employer_positions.dart';
-import 'package:only_job/views/home/employer_profile.dart';
-import 'package:only_job/services/skills_uploader.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/views/home/employer_positions.dart';
+import 'package:job_findr/views/home/employer_profile.dart';
+//import 'package:job_findr/services/skills_uploader.dart'; --not needed?
 import '../../chatFeature/main_chat_page.dart';
 
 class ClientHomePage extends StatefulWidget {

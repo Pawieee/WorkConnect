@@ -1,18 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/models/user.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/models/user.dart';
 import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:io';
-import 'package:only_job/utils/image_picker.dart';
+import 'package:job_findr/utils/image_picker.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:typed_data';
 
 class EmployerProfile extends StatefulWidget {
+  const EmployerProfile({super.key});
+
   @override
   State<EmployerProfile> createState() => _EmployerProfileState();
 }
@@ -32,11 +34,11 @@ class _EmployerProfileState extends State<EmployerProfile> {
   bool _loadingEmail = false;
   bool _loadingWebsite = false;
 
-  TextEditingController _companyNameController = TextEditingController();
-  TextEditingController _addressController = TextEditingController();
-  TextEditingController _phoneController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _websiteController = TextEditingController();
+  final TextEditingController _companyNameController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _websiteController = TextEditingController();
 
   Uint8List? _webImage;
   String? _imageLink;
@@ -56,7 +58,7 @@ class _EmployerProfileState extends State<EmployerProfile> {
     ),
     borderRadius: BorderRadius.all(Radius.circular(8.0)),
   );
-  int _currentIndex = 4;
+  //int _currentIndex = 4; --not needed?
 
   @override
   Widget build(BuildContext context) {
@@ -407,13 +409,13 @@ class _EmployerProfileState extends State<EmployerProfile> {
                 // pop all the screens and go to the login screen
                 await _auth.signOut();
               },
-              child: Text(
-                'Logout',
-                style: TextStyle(color: Colors.red),
-              ),
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50),
                 backgroundColor: Colors.white, // Button color
+              ),
+              child: Text(
+                'Logout',
+                style: TextStyle(color: Colors.red),
               ),
             ),
           ],

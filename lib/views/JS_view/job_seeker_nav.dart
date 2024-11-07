@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:only_job/views/JS_view/job_seeker_home.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/JS_view/job_seeker_profile.dart';
+import 'package:job_findr/views/JS_view/job_seeker_home.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/views/JS_view/job_seeker_profile.dart';
 
 import '../../chatFeature/main_chat_page.dart';
 
@@ -13,7 +13,7 @@ class NavJS extends StatefulWidget {
 }
 
 class _NavJSState extends State<NavJS> {
-  int _currentIndex = 1;
+  //int _currentIndex = 1; --not needed?
   late List<Widget> _pages;
 
   int _selectedIndex = 1;

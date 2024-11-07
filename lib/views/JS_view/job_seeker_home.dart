@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/models/user.dart';
-import 'package:only_job/models/education.dart';
-import 'package:only_job/views/constants/loading.dart';
-import 'package:only_job/services/job_service.dart';
-import 'package:only_job/models/jobs.dart';
-import 'package:only_job/services/job_recommendation_controller.dart';
-import 'package:only_job/services/job_matcher.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/models/user.dart';
+import 'package:job_findr/models/education.dart';
+import 'package:job_findr/views/constants/loading.dart';
+import 'package:job_findr/services/job_service.dart';
+import 'package:job_findr/models/jobs.dart';
+import 'package:job_findr/services/job_recommendation_controller.dart';
+import 'package:job_findr/services/job_matcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:only_job/views/constants/constants.dart';
 
 class HomePage extends StatefulWidget {
   Function changePage;
@@ -38,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   List<dynamic>? skills = [];
   bool _isLoading = true;
 
-  Map<String, UserData> _prefetchedUserData = {};
+  final Map<String, UserData> _prefetchedUserData = {};
 
   @override
   void initState() {

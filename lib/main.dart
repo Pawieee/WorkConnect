@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/services/firebase_options.dart';
+import 'package:job_findr/services/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:only_job/views/auth_gate.dart';
-import 'package:only_job/views/constants/constants.dart';
+import 'package:job_findr/views/auth_gate.dart';
+//import 'package:job_findr/views/constants/constants.dart'; --not needed?
 import 'package:provider/provider.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/models/user.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/models/user.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:only_job/views/home/job_seeker_profileview.dart';
+//import 'package:job_findr/views/home/job_seeker_profileview.dart'; --not needed?
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

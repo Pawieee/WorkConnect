@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
+import 'package:job_findr/views/constants/constants.dart';
 
 final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
@@ -25,7 +25,8 @@ void showSkillsBottomSheet(String receiverUserId, BuildContext context) {
           // Extract user data
           String name = snapshot.data!['name'] ?? 'No name available';
           String email = snapshot.data!['email'] ?? 'No email available';
-          String profilePictureUrl = snapshot.data!['profile_picture'] ?? ''; // Add this for profile picture
+          String profilePictureUrl = snapshot.data!['profile_picture'] ??
+              ''; // Add this for profile picture
 
           // Check for skills field (can be empty or missing)
           List<dynamic> skills = snapshot.data!['skills'] ?? [];
@@ -40,17 +41,17 @@ void showSkillsBottomSheet(String receiverUserId, BuildContext context) {
                   // Display user profile picture
                   profilePictureUrl.isNotEmpty
                       ? Center(
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundImage: NetworkImage(profilePictureUrl),
-                    ),
-                  )
+                          child: CircleAvatar(
+                            radius: 40,
+                            backgroundImage: NetworkImage(profilePictureUrl),
+                          ),
+                        )
                       : Center(
-                    child: CircleAvatar(
-                      radius: 40,
-                      child: Icon(Icons.person),
-                    ),
-                  ),
+                          child: CircleAvatar(
+                            radius: 40,
+                            child: Icon(Icons.person),
+                          ),
+                        ),
                   SizedBox(height: 16),
                   // Display name and email
                   Text('Name: $name', style: usernameStylewithSecondaryColor),
@@ -63,10 +64,14 @@ void showSkillsBottomSheet(String receiverUserId, BuildContext context) {
                   SizedBox(height: 8),
                   skills.isNotEmpty
                       ? Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: skills.map((skill) => Text('- $skill', style: usernameStylewithSecondaryColor)).toList(),
-                  )
-                      : Text('No skills available', style: usernameStylewithSecondaryColor),
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: skills
+                              .map((skill) => Text('- $skill',
+                                  style: usernameStylewithSecondaryColor))
+                              .toList(),
+                        )
+                      : Text('No skills available',
+                          style: usernameStylewithSecondaryColor),
                 ],
               ),
             ),

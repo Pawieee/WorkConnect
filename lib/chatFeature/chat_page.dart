@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/chatFeature/display_message.dart';
-import 'package:only_job/chatFeature/profile.dart';
-import 'package:only_job/chatFeature/skills.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/constants/loading.dart';
+import 'package:job_findr/chatFeature/display_message.dart';
+import 'package:job_findr/chatFeature/profile.dart';
+import 'package:job_findr/chatFeature/skills.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/views/constants/loading.dart';
 import '../models/message.dart';
 import '../services/auth.dart';
-import '../views/JS_view/job_seeker_home.dart';
+//import '../views/JS_view/job_seeker_home.dart'; --not needed?
 import '../views/JS_view/job_seeker_nav.dart';
 import '../views/home/employer_homepage.dart';
-import 'chat_list.dart';
+//import 'chat_list.dart'; --not needed?
 
 class ChatPage extends StatefulWidget {
   final Map<String, dynamic> user;

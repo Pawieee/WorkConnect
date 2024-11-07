@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/models/user.dart';
+import 'package:job_findr/models/user.dart';
 import 'package:intl/intl.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/services/auth.dart';
 
 class EditContactInfoPage extends StatefulWidget {
   final UserData userData;
 
-  EditContactInfoPage({
-    Key? key,
+  const EditContactInfoPage({
+    super.key,
     required this.userData,
-  }) : super(key: key);
+  });
 
   @override
   _EditContactInfoPageState createState() => _EditContactInfoPageState();
@@ -26,7 +26,7 @@ class _EditContactInfoPageState extends State<EditContactInfoPage> {
   late TextEditingController _websiteController;
   late TextEditingController _emailController;
   late String _initialEmail;
-  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -76,7 +76,7 @@ class _EditContactInfoPageState extends State<EditContactInfoPage> {
       _addressController.text,
     );
 
-    if (_websiteController.text != null && _websiteController.text.isNotEmpty) {
+    if (_websiteController.text.isNotEmpty) {
       await UserService(uid: widget.userData.uid!)
           .updateWebsite(_websiteController.text);
     }

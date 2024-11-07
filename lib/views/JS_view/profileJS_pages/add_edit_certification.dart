@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/models/certification.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
+import 'package:job_findr/models/certification.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
 import 'dart:typed_data';
-import 'package:only_job/services/file_service.dart';
-import 'package:only_job/views/constants/constants.dart';
+import 'package:job_findr/services/file_service.dart';
+import 'package:job_findr/views/constants/constants.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class AddCertificationPage extends StatefulWidget {
   final Certification? certification; // For editing existing certification
 
-  AddCertificationPage({this.certification});
+  const AddCertificationPage({super.key, this.certification});
 
   @override
   _AddCertificationPageState createState() => _AddCertificationPageState();
@@ -24,7 +24,7 @@ class _AddCertificationPageState extends State<AddCertificationPage> {
   late AuthService _authService;
   late UserService _userService;
 
-  FileService _fileUploader = FileService();
+  final FileService _fileUploader = FileService();
 
   dynamic _attachedFile;
 

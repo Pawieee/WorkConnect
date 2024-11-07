@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
+import 'package:job_findr/views/constants/constants.dart';
 
 final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
@@ -27,7 +27,8 @@ void showProfileBottomSheet(String receiverUserId, BuildContext context) {
           String profilePicture = snapshot.data!['profile_picture'] ?? '';
           String address = snapshot.data!['address'] ?? 'No address available';
           String email = snapshot.data!['email'] ?? 'No email available';
-          String phone = snapshot.data!['phone'] ?? 'No contact number available';
+          String phone =
+              snapshot.data!['phone'] ?? 'No contact number available';
 
           return Container(
             padding: EdgeInsets.all(16.0),
@@ -36,29 +37,32 @@ void showProfileBottomSheet(String receiverUserId, BuildContext context) {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Company Details", style: usernameStylewithSecondaryColor),
+                  Text("Company Details",
+                      style: usernameStylewithSecondaryColor),
                   SizedBox(height: 16),
                   profilePicture.isNotEmpty
                       ? Center(
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundImage: NetworkImage(profilePicture),
-                    ),
-                  )
+                          child: CircleAvatar(
+                            radius: 40,
+                            backgroundImage: NetworkImage(profilePicture),
+                          ),
+                        )
                       : Center(
-                    child: CircleAvatar(
-                      radius: 40,
-                      child: Icon(Icons.person),
-                    ),
-                  ),
-                   SizedBox(height: 16),
+                          child: CircleAvatar(
+                            radius: 40,
+                            child: Icon(Icons.person),
+                          ),
+                        ),
+                  SizedBox(height: 16),
                   Text('Name: $name', style: usernameStylewithSecondaryColor),
                   SizedBox(height: 16),
-                  Text('Address: $address', style: usernameStylewithSecondaryColor),
+                  Text('Address: $address',
+                      style: usernameStylewithSecondaryColor),
                   SizedBox(height: 16),
                   Text('Email: $email', style: usernameStylewithSecondaryColor),
                   SizedBox(height: 16),
-                  Text('Contact Number: $phone', style: usernameStylewithSecondaryColor),
+                  Text('Contact Number: $phone',
+                      style: usernameStylewithSecondaryColor),
                 ],
               ),
             ),

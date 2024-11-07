@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/models/experience.dart';
-import 'package:only_job/views/constants/constants.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/models/experience.dart';
+import 'package:job_findr/views/constants/constants.dart';
 import 'dart:developer';
 
 class AddExperiencePage extends StatefulWidget {
   final Experience? experience; // Optional existing experience entry
 
-  const AddExperiencePage({Key? key, this.experience}) : super(key: key);
+  const AddExperiencePage({super.key, this.experience});
 
   @override
   _AddExperiencePageState createState() => _AddExperiencePageState();

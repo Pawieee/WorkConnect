@@ -20,8 +20,9 @@ class ImagePicker {
   }
 
   Future<Uint8List?> getImageFromFiles() async {
-    final img_p.ImagePicker _picker = img_p.ImagePicker();
-    img_p.XFile? image = await _picker.pickImage(source: img_p.ImageSource.gallery);
+    final img_p.ImagePicker picker = img_p.ImagePicker();
+    img_p.XFile? image =
+        await picker.pickImage(source: img_p.ImageSource.gallery);
     if (image != null) {
       var f = await image.readAsBytes();
       return f;
@@ -45,8 +46,9 @@ class ImagePicker {
 
   // make a method that will return a file (pdf or image) form the computer
   Future<File?> getFileFromFiles() async {
-    final img_p.ImagePicker _picker = img_p.ImagePicker();
-    img_p.XFile? image = await _picker.pickImage(source: img_p.ImageSource.gallery);
+    final img_p.ImagePicker picker = img_p.ImagePicker();
+    img_p.XFile? image =
+        await picker.pickImage(source: img_p.ImageSource.gallery);
     if (image != null) {
       return File(image.path);
     }

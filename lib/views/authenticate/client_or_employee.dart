@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/authenticate/sign_up_form.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/authenticate/employer_signup_form.dart';
+import 'package:job_findr/views/authenticate/sign_up_form.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/views/authenticate/employer_signup_form.dart';
 
 class ClientOrEmployee extends StatelessWidget {
-  ClientOrEmployee({super.key, required this.changePage});
+  const ClientOrEmployee({super.key, required this.changePage});
 
   final Function changePage;
 
@@ -37,7 +37,7 @@ class ClientOrEmployee extends StatelessWidget {
               SizedBox(height: 30),
               buildRoleCard(
                 context,
-                image: 'JobSeeker_background_pic.jpg',
+                image: 'assets/JobSeeker_background_pic.jpg',
                 buttonText: 'Job Seeker',
                 description:
                     'Find jobs, set your profile, and showcase your skills to potential employers.',
@@ -52,7 +52,7 @@ class ClientOrEmployee extends StatelessWidget {
               SizedBox(height: 20),
               buildRoleCard(
                 context,
-                image: 'Client_backgound_pic.jpg',
+                image: 'assets/Client_backgound_pic.jpg',
                 buttonText: 'Employer',
                 description:
                     'Post jobs, find skilled freelancers, and manage job applications easily.',

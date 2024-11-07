@@ -1,9 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart'; --not needed?
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:developer';
-import 'package:only_job/models/jobs.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/services/auth.dart';
+import 'package:job_findr/models/jobs.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/services/auth.dart';
 
 class JobService {
   JobService({required this.uid});
@@ -228,7 +228,7 @@ class JobService {
       rethrow; // Propagate the error for handling upstream
     }
   }
-  
+
   Stream<Map<String, Map<String, dynamic>>> getAcceptedApplicantsStream(
       String jobUid) {
     return FirebaseFirestore.instance
@@ -242,7 +242,7 @@ class JobService {
       Map<String, Map<String, dynamic>> applicantsMap = {};
       for (var applicantDoc in snapshot.docs) {
         applicantsMap[applicantDoc.id] =
-            applicantDoc.data() as Map<String, dynamic>; // Ensure type safety
+            applicantDoc.data(); // Ensure type safety
       }
       return applicantsMap; // Return the populated map
     });
@@ -261,13 +261,11 @@ class JobService {
       Map<String, Map<String, dynamic>> applicantsMap = {};
       for (var applicantDoc in snapshot.docs) {
         applicantsMap[applicantDoc.id] =
-            applicantDoc.data() as Map<String, dynamic>; // Ensure type safety
+            applicantDoc.data(); // Ensure type safety
       }
       return applicantsMap; // Return the populated map
     });
   }
-
-
 
   Future<Map<String, Map<String, dynamic>>> getPendingApplicantsList(
       String jobUid) async {

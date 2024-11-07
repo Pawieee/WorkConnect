@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/chatFeature/user_search.dart';
-import 'package:only_job/views/constants/constants.dart';
-import '../views/constants/loading.dart';
+import 'package:job_findr/chatFeature/user_search.dart';
+import 'package:job_findr/views/constants/constants.dart';
+// import '../views/constants/loading.dart'; -- not needed?
 import 'chat_page.dart';
 
 class UserListPage extends StatefulWidget {

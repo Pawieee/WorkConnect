@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:provider/provider.dart';
-import 'package:only_job/models/user.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/views/constants/loading.dart';
-// import 'package:only_job/views/home/homepageJS.dart';
-import 'package:only_job/views/home/employer_homepage.dart';
-import 'package:only_job/views/JS_view/job_seeker_nav.dart';
-import 'package:only_job/views/authenticate/introduction.dart';
+import 'package:job_findr/services/auth.dart';
+//import 'package:provider/provider.dart'; --not needed?
+import 'package:job_findr/models/user.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/views/constants/loading.dart';
+// import 'package:job_findr/views/home/homepageJS.dart'; --not needed?
+import 'package:job_findr/views/home/employer_homepage.dart';
+import 'package:job_findr/views/JS_view/job_seeker_nav.dart';
+import 'package:job_findr/views/authenticate/introduction.dart';
 
 class Home extends StatefulWidget {
   Home({super.key, required this.uid});
@@ -18,9 +18,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final AuthService _auth = AuthService();
+  final AuthService _auth = AuthService(); //--not needed?
   bool isUserNew = true;
-  
+
   void setUserNotNew() {
     setState(() {
       isUserNew = false;

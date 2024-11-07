@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/constants/loading.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/views/constants/loading.dart';
 
 import '../models/message.dart';
 import '../services/auth.dart';
@@ -11,7 +11,11 @@ class DisplayMessage extends StatefulWidget {
   final String user; // Receiver's name
   final String receiverUserId; // Receiver's user ID
   final String senderUserId; // Sender's user ID
-  const DisplayMessage({super.key, required this.user, required this.receiverUserId, required this.senderUserId});
+  const DisplayMessage(
+      {super.key,
+      required this.user,
+      required this.receiverUserId,
+      required this.senderUserId});
 
   @override
   State<DisplayMessage> createState() => _DisplayMessageState();
@@ -46,17 +50,15 @@ class _DisplayMessageState extends State<DisplayMessage> {
         .snapshots()
         .map((snapshot) {
       return snapshot.docs.map((doc) {
-        return Message.fromMap(doc.data() as Map<String, dynamic>);
+        return Message.fromMap(doc.data());
       }).toList();
     });
   }
 
   Future<String?> getProfilePicture(String userId) async {
     try {
-      DocumentSnapshot<Map<String, dynamic>> userDoc = await FirebaseFirestore.instance
-          .collection('User')
-          .doc(userId)
-          .get();
+      DocumentSnapshot<Map<String, dynamic>> userDoc =
+          await FirebaseFirestore.instance.collection('User').doc(userId).get();
 
       if (userDoc.exists) {
         Map<String, dynamic>? userData = userDoc.data();
@@ -69,6 +71,7 @@ class _DisplayMessageState extends State<DisplayMessage> {
       return null; // Handle errors by returning null
     }
   }
+
   final ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
@@ -100,7 +103,6 @@ class _DisplayMessageState extends State<DisplayMessage> {
           }
         });
 
-
         // Building the message list
         return ListView.builder(
           controller: _scrollController,
@@ -111,7 +113,8 @@ class _DisplayMessageState extends State<DisplayMessage> {
             Message message = snapshot.data![index];
 
             // Determine if the current message is sent by the user or received from another user
-            bool isSender = message.senderId == widget.senderUserId; // Use senderId for comparison
+            bool isSender = message.senderId ==
+                widget.senderUserId; // Use senderId for comparison
 
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -130,10 +133,13 @@ class _DisplayMessageState extends State<DisplayMessage> {
                           tileColor: isSender ? secondarycolor : Colors.white,
                           leading: FutureBuilder<String?>(
                             future: isSender
-                                ? getProfilePicture(widget.senderUserId) // Sender's profile picture
-                                : getProfilePicture(widget.receiverUserId), // Receiver's profile picture
+                                ? getProfilePicture(widget
+                                    .senderUserId) // Sender's profile picture
+                                : getProfilePicture(widget
+                                    .receiverUserId), // Receiver's profile picture
                             builder: (context, snapshot) {
-                              if (snapshot.connectionState == ConnectionState.waiting) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
                                 //return Loading();
                                 return CircularProgressIndicator(); // Display loading indicator
                               }
@@ -151,7 +157,8 @@ class _DisplayMessageState extends State<DisplayMessage> {
                           title: Text(
                             isSender ? message.senderName : widget.user,
                             style: usernameStyle,
-                            textAlign: TextAlign.left, // Align the text to the left
+                            textAlign:
+                                TextAlign.left, // Align the text to the left
                           ),
                           subtitle: Row(
                             children: [
@@ -159,14 +166,16 @@ class _DisplayMessageState extends State<DisplayMessage> {
                                 child: Text(
                                   message.message,
                                   softWrap: true,
-                                  style: TextStyle(fontSize: 15, color: Colors.black),
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.black),
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: 8), // Add space between ListTile and time
+                      SizedBox(
+                          height: 8), // Add space between ListTile and time
                       Text(
                         '${message.time.hour}:${message.time.minute.toString().padLeft(2, '0')}',
                         style: TextStyle(fontSize: 12, color: Colors.grey),

@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart'; --not needed??
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SkillsUploader extends StatefulWidget {
+  const SkillsUploader({super.key});
+
   @override
   _SkillsUploaderState createState() => _SkillsUploaderState();
 }
@@ -50,4 +52,3 @@ class _SkillsUploaderState extends State<SkillsUploader> {
     );
   }
 }
-

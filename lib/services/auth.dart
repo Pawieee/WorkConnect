@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb_auth;
-import 'package:only_job/models/user.dart';
+import 'package:job_findr/models/user.dart';
 import 'dart:developer';
 
 class AuthService {

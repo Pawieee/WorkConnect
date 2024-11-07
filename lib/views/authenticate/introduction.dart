@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/services/auth.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/services/auth.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key, required this.setUserNotNew});
@@ -11,7 +11,7 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   final AuthService _auth = AuthService();
   int _currentPage = 0;
 

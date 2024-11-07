@@ -1,15 +1,15 @@
-import 'package:flutter/gestures.dart';
+//import 'package:flutter/gestures.dart'; --not needed?
 import 'package:flutter/material.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/models/user.dart';
-import 'package:only_job/models/education.dart';
-import 'package:only_job/views/constants/loading.dart';
-import 'package:only_job/services/job_service.dart';
-import 'package:only_job/models/jobs.dart';
-import 'package:only_job/services/job_recommendation_controller.dart';
-import 'package:only_job/services/job_matcher.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/models/user.dart';
+import 'package:job_findr/models/education.dart';
+import 'package:job_findr/views/constants/loading.dart';
+import 'package:job_findr/services/job_service.dart';
+import 'package:job_findr/models/jobs.dart';
+import 'package:job_findr/services/job_recommendation_controller.dart';
+import 'package:job_findr/services/job_matcher.dart';
 
 class HomePage extends StatefulWidget {
   Function changePage;
@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   List<dynamic>? skills = [];
   bool _isLoading = true;
 
-  Map<String, UserData> _prefetchedUserData = {};
+  final Map<String, UserData> _prefetchedUserData = {};
 
   @override
   void initState() {
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
 
     // Fetch more job recommendations
     List<JobData> moreJobs =
-    await jobRecommendationController.fetchInitialJobsRecommendations(uid);
+        await jobRecommendationController.fetchInitialJobsRecommendations(uid);
 
     // Prefetch user data for the additional jobs
     for (var job in moreJobs) {
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
     });
 
     List<JobData> jobs =
-    await jobRecommendationController.fetchInitialJobsRecommendations(uid);
+        await jobRecommendationController.fetchInitialJobsRecommendations(uid);
 
     for (var job in jobs) {
       UserData userData = await _userService.getUserById(job.owner!);
@@ -132,144 +132,143 @@ class _HomePageState extends State<HomePage> {
     return _isLoading
         ? const Loading()
         : Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 16.0, vertical: 10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            body: Column(
               children: [
-                Image.asset(
-                  'Logo.png',
-                  height: 60,
-                ),
-                StreamBuilder<UserData>(
-                  stream: _userService.userData,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Text('Error: ${snapshot.error}');
-                    }
-                    if (snapshot.hasData) {
-                      return GestureDetector(
-                        onTap: () {
-                          showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            builder: (BuildContext context) {
-                              return FractionallySizedBox(
-                                heightFactor: 0.5,
-                                alignment: Alignment.topRight,
-                                child: _buildProfileModal(
-                                    context, snapshot.data!),
-                              );
-                            },
-                          );
-                        },
-                        child: CircleAvatar(
-                          radius: 20,
-                          backgroundColor: Colors.grey[300],
-                          child: ClipOval(
-                              child: Image.network(
-                                  snapshot.data!.profilePicture!,
-                                  width: 40,
-                                  height: 40,
-                                  fit: BoxFit.cover)),
-                        ),
-                      );
-                    }
-                    return const CircularProgressIndicator();
-                  },
-                ),
-              ],
-            ),
-          ),
-          if (skills!.isEmpty)
-            Padding(
-                padding: const EdgeInsets.all(8),
-                child: Container(
-                  height: 60, // Fixed height
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.yellow[100],
-                    border:
-                    Border.all(color: Colors.amber[300]!, width: 1),
-                  ),
-
+                Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 16), // Optional padding
+                      horizontal: 16.0, vertical: 10.0),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment
-                        .spaceBetween, // Align text to the left and button to the right
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Set up profile to get started',
-                        style: TextStyle(
-                            fontSize: 16), // Customize the text style
+                      Image.asset(
+                        'Logo.png',
+                        height: 60,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          widget.changePage(0);
+                      StreamBuilder<UserData>(
+                        stream: _userService.userData,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasError) {
+                            return Text('Error: ${snapshot.error}');
+                          }
+                          if (snapshot.hasData) {
+                            return GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  builder: (BuildContext context) {
+                                    return FractionallySizedBox(
+                                      heightFactor: 0.5,
+                                      alignment: Alignment.topRight,
+                                      child: _buildProfileModal(
+                                          context, snapshot.data!),
+                                    );
+                                  },
+                                );
+                              },
+                              child: CircleAvatar(
+                                radius: 20,
+                                backgroundColor: Colors.grey[300],
+                                child: ClipOval(
+                                    child: Image.network(
+                                        snapshot.data!.profilePicture!,
+                                        width: 40,
+                                        height: 40,
+                                        fit: BoxFit.cover)),
+                              ),
+                            );
+                          }
+                          return const CircularProgressIndicator();
                         },
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.amber[300],
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            )),
-                        child: const Text(
-                          'Set-up',
-                          style: TextStyle(color: Colors.black),
-                        ),
                       ),
                     ],
                   ),
-                )),
-          Expanded(
-            child: _isJobLoading
-                ? const Center(
-              child: CircularProgressIndicator(),
-            )
-                : _jobs.isNotEmpty
-                ? PageView.builder(
-                controller: _pageController,
-                scrollDirection: Axis.vertical,
-                itemCount: _jobs.length + 1,
-                itemBuilder: (context, index) {
-                  if (index < _jobs.length &&
-                      _jobs.isNotEmpty) {
-                    JobData job = _jobs[index];
-                    UserData? jobOwner =
-                    _prefetchedUserData[job.owner!];
-                    if (jobOwner == null) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: CustomBodyWidget(
-                          job: job, jobOwner: jobOwner),
-                    );
-                  } else {
-                    return _isJobLoadingMore
-                        ? const Center(
-                      child: CircularProgressIndicator(),
-                    )
-                        : const Center(
-                      child: Text(
-                          'No more jobs available yet'),
-                    );
-                  }
-                })
-                : const Center(
-              child: Text(
-                  'No jobs available for you at the moment'),
+                ),
+                if (skills!.isEmpty)
+                  Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Container(
+                        height: 60, // Fixed height
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.yellow[100],
+                          border:
+                              Border.all(color: Colors.amber[300]!, width: 1),
+                        ),
+
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16), // Optional padding
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment
+                              .spaceBetween, // Align text to the left and button to the right
+                          children: [
+                            Text(
+                              'Set up profile to get started',
+                              style: TextStyle(
+                                  fontSize: 16), // Customize the text style
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                widget.changePage(0);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.amber[300],
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                              child: const Text(
+                                'Set-up',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )),
+                Expanded(
+                  child: _isJobLoading
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : _jobs.isNotEmpty
+                          ? PageView.builder(
+                              controller: _pageController,
+                              scrollDirection: Axis.vertical,
+                              itemCount: _jobs.length + 1,
+                              itemBuilder: (context, index) {
+                                if (index < _jobs.length && _jobs.isNotEmpty) {
+                                  JobData job = _jobs[index];
+                                  UserData? jobOwner =
+                                      _prefetchedUserData[job.owner!];
+                                  if (jobOwner == null) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+                                  return Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: CustomBodyWidget(
+                                        job: job, jobOwner: jobOwner),
+                                  );
+                                } else {
+                                  return _isJobLoadingMore
+                                      ? const Center(
+                                          child: CircularProgressIndicator(),
+                                        )
+                                      : const Center(
+                                          child: Text(
+                                              'No more jobs available yet'),
+                                        );
+                                }
+                              })
+                          : const Center(
+                              child: Text(
+                                  'No jobs available for you at the moment'),
+                            ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 
   Widget _buildProfileModal(BuildContext context, UserData userData) {
@@ -438,7 +437,6 @@ class _CustomBodyWidgetState extends State<CustomBodyWidget> {
               ),
             ),
 
-
           const SizedBox(height: 8), // Spacing
 
           // Location section
@@ -549,7 +547,7 @@ class _CustomBodyWidgetState extends State<CustomBodyWidget> {
                   child: PageView(
                     controller: PageController(
                         viewportFraction:
-                        0.95), // Add viewportFraction for slight space between pages
+                            0.95), // Add viewportFraction for slight space between pages
                     children: [
                       _buildDescriptionSection(
                           'Job Description', widget.job!.jobDescription!),

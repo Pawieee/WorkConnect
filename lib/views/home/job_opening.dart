@@ -1,19 +1,21 @@
-import 'package:flutter/gestures.dart';
+//import 'package:flutter/gestures.dart'; --not needed?
 import 'package:flutter/material.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
+import 'package:job_findr/services/auth.dart';
+//import 'package:job_findr/services/user_service.dart'; --not needed?
 import 'package:flutter/services.dart';
-import 'dart:developer';
-import 'package:only_job/services/retrieve_skills.dart';
-import 'package:only_job/views/home/common/search_skills.dart';
-import 'package:only_job/services/job_service.dart';
+//import 'dart:developer'; --not needed?
+import 'package:job_findr/services/retrieve_skills.dart';
+import 'package:job_findr/views/home/common/search_skills.dart';
+import 'package:job_findr/services/job_service.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:only_job/services/file_service.dart';
-import 'package:only_job/services/file_service.dart';
-import 'package:only_job/views/constants/constants.dart';
+//import 'dart:io'; --not needed?
+import 'package:job_findr/services/file_service.dart';
+//import 'package:job_findr/services/file_service.dart'; --not needed?
+import 'package:job_findr/views/constants/constants.dart';
 
 class JobOpeningForm extends StatefulWidget {
+  const JobOpeningForm({super.key});
+
   @override
   _JobOpeningFormState createState() => _JobOpeningFormState();
 }
@@ -41,13 +43,13 @@ class _JobOpeningFormState extends State<JobOpeningForm> {
   String? _selectedJobType;
   final List<String> _jobTypes = ['Full Time', 'Part Time', 'Contract'];
 
-  FileService _fileUploader = FileService();
+  final FileService _fileUploader = FileService();
   Uint8List? _image;
-  final ImagePicker _picker = ImagePicker();
-  bool _isUploading = false;
+  final ImagePicker _picker = ImagePicker(); // --not needed?
+  final bool _isUploading = false; // --not needed?
 
   String _error = '';
-  bool _loading = false;
+  final bool _loading = false; // --not needed?
 
   @override
   void initState() {
@@ -215,7 +217,7 @@ class _JobOpeningFormState extends State<JobOpeningForm> {
                   SizedBox(height: 8),
                   for (String skill in selectedSkills)
                     Chip(
-                      label: Text("$skill"),
+                      label: Text(skill),
                       onDeleted: () {
                         setState(() {
                           selectedSkills.remove(skill);

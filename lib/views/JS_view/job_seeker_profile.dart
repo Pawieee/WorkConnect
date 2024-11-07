@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:only_job/views/JS_view/profileJS_pages/add_edit_certification.dart';
-import 'package:only_job/views/JS_view/profileJS_pages/add_edit_education.dart';
-import 'package:only_job/views/JS_view/profileJS_pages/add_edit_experience.dart';
-import 'package:only_job/views/JS_view/profileJS_pages/add_edit_skills.dart';
-import 'package:only_job/views/JS_view/profileJS_pages/edit_profile.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/services/user_service.dart';
-import 'package:only_job/models/user.dart';
-import 'package:only_job/views/constants/loading.dart';
+import 'package:job_findr/views/JS_view/profileJS_pages/add_edit_certification.dart';
+import 'package:job_findr/views/JS_view/profileJS_pages/add_edit_education.dart';
+import 'package:job_findr/views/JS_view/profileJS_pages/add_edit_experience.dart';
+import 'package:job_findr/views/JS_view/profileJS_pages/add_edit_skills.dart';
+import 'package:job_findr/views/JS_view/profileJS_pages/edit_profile.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/services/user_service.dart';
+import 'package:job_findr/models/user.dart';
+import 'package:job_findr/views/constants/loading.dart';
 import 'package:intl/intl.dart';
-import 'package:only_job/models/education.dart';
-import 'package:only_job/models/experience.dart';
-import 'package:only_job/models/certification.dart';
-import 'package:only_job/services/file_service.dart';
+import 'package:job_findr/models/education.dart';
+import 'package:job_findr/models/experience.dart';
+import 'package:job_findr/models/certification.dart';
+import 'package:job_findr/services/file_service.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -29,7 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   List<String> skills = [];
 
   // Stored Sample Job
-  final ImagePicker _picker = ImagePicker();
+  final ImagePicker _picker = ImagePicker(); // --not needed?
   final FileService _fileUploader = FileService();
   bool pfpLoading = false;
 

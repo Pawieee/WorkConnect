@@ -1,19 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/models/user.dart';
-import 'package:only_job/services/auth.dart';
-import 'package:only_job/views/constants/constants.dart';
+//import 'package:job_findr/models/user.dart'; --not needed?
+import 'package:job_findr/services/auth.dart';
+import 'package:job_findr/views/constants/constants.dart';
 import '../views/constants/loading.dart';
 
 class UserSearchDelegate extends SearchDelegate {
-
-
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   AuthService authService = AuthService();
   final FirebaseAuth auth = FirebaseAuth.instance;
-
-
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -22,7 +18,6 @@ class UserSearchDelegate extends SearchDelegate {
         icon: Icon(Icons.clear),
         onPressed: () {
           close(context, null);
-
         },
       ),
     ];
@@ -38,12 +33,10 @@ class UserSearchDelegate extends SearchDelegate {
     );
   }
 
-
-
-
   Future<void> _addContact(String contactId) async {
     String currentUserId = auth.currentUser!.uid;
-    DocumentReference userDocRef = firestore.collection('User').doc(currentUserId);
+    DocumentReference userDocRef =
+        firestore.collection('User').doc(currentUserId);
 
     await userDocRef.update({
       'contacts': FieldValue.arrayUnion([contactId]),
@@ -56,7 +49,7 @@ class UserSearchDelegate extends SearchDelegate {
       stream: firestore
           .collection('User')
           .where('name', isGreaterThanOrEqualTo: query)
-          .where('name', isLessThanOrEqualTo: query + '\uf8ff')
+          .where('name', isLessThanOrEqualTo: '$query\uf8ff')
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -74,13 +67,19 @@ class UserSearchDelegate extends SearchDelegate {
             final String userEmail = userData['email'] ?? 'No Email';
 
             return ListTile(
-              title: Text(userName, style: usernameStyle,),
-              subtitle: Text(userEmail, style: emailStyle,),
+              title: Text(
+                userName,
+                style: usernameStyle,
+              ),
+              subtitle: Text(
+                userEmail,
+                style: emailStyle,
+              ),
               onTap: () async {
-                final userExistNotPush = await firestore
+                /* final userExistNotPush = await firestore
                     .collection('User')
                     .where('name', isEqualTo: userName)
-                    .get();
+                    .get(); --not needed? */
 
                 await _addContact(userDoc.id);
                 close(context, userData);
@@ -92,19 +91,21 @@ class UserSearchDelegate extends SearchDelegate {
     );
   }
 
-
   @override
   Widget buildSuggestions(BuildContext context) {
     if (query.isEmpty) {
-      return Center(child: Text('Enter a name to search', style: usernameStyle,));
+      return Center(
+          child: Text(
+        'Enter a name to search',
+        style: usernameStyle,
+      ));
     }
 
     return StreamBuilder<QuerySnapshot>(
       stream: firestore
           .collection('User')
           .where('name', isGreaterThanOrEqualTo: query)
-          .where('name', isLessThanOrEqualTo: query + '\uf8ff')
-
+          .where('name', isLessThanOrEqualTo: '$query\uf8ff')
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -122,18 +123,23 @@ class UserSearchDelegate extends SearchDelegate {
             final String userEmail = userData['email'] ?? 'No Email';
 
             return ListTile(
-              title: Text(userName, style: usernameStyle,),
-              subtitle: Text(userEmail, style: emailStyle,),
+              title: Text(
+                userName,
+                style: usernameStyle,
+              ),
+              subtitle: Text(
+                userEmail,
+                style: emailStyle,
+              ),
               onTap: () async {
-                final userExistNotPush = await firestore
+                /*final userExistNotPush = await firestore
                     .collection('User')
                     .where('name', isEqualTo: userName)
-                    .get();
+                    .get(); --not needed? */
 
                 await _addContact(userDoc.id);
                 close(context, userData);
               },
-
             );
           },
         );

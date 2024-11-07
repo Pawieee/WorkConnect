@@ -6,7 +6,7 @@
    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
     <application
         android:requestLegacyExternalStorage="true"
-        android:label="only_job"
+        android:label="job_findr"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,22 +1,22 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:only_job/models/jobs.dart';
-import 'package:only_job/views/constants/constants.dart';
-import 'package:only_job/views/constants/loading.dart';
-import 'package:only_job/views/home/job_seeker_profileview.dart';
+import 'package:job_findr/models/jobs.dart';
+import 'package:job_findr/views/constants/constants.dart';
+import 'package:job_findr/views/constants/loading.dart';
+import 'package:job_findr/views/home/job_seeker_profileview.dart';
 
 import '../../chatFeature/chat_page.dart';
 import '../../services/job_service.dart';
 import '../../services/retrieve_skills.dart';
 import 'common/search_skills.dart';
-import 'employer_positions.dart';
+//import 'employer_positions.dart'; --not needed?
 import '../../services/auth.dart';
 import '../../models/applicant.dart';
 
 class JobDetailsPage extends StatefulWidget {
   final JobData jobData;
 
-  JobDetailsPage({required this.jobData});
+  const JobDetailsPage({super.key, required this.jobData});
 
   @override
   _JobDetailsPageState createState() => _JobDetailsPageState();
@@ -35,7 +35,7 @@ class _JobDetailsPageState extends State<JobDetailsPage>
 
   late List<String> skills = [];
   List<String> selectedSkills = [];
-  String _skillsError = '';
+  // String _skillsError = ''; --not needed?
 
   late Map<String, dynamic>? applicantData = {};
   late AuthService _auth;
@@ -144,7 +144,7 @@ class _JobDetailsPageState extends State<JobDetailsPage>
     final selectedSkill = await showSearch<String>(
       context: context,
       delegate: SearchSkills(skills: skills, addSkills: addSkills),
-    );
+    ); // --not needed?
 
     // Remove this since the addSkills method already updates selectedSkills
     // if (selectedSkill != null) {
@@ -410,7 +410,7 @@ class _JobDetailsPageState extends State<JobDetailsPage>
                     ],
                   ),
 
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.6,
                     child: TabBarView(
                       controller: _tabController,
