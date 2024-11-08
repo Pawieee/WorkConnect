@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.u3L1J.only_job"
+    namespace = "com.u3L1J.jobfindr"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "25.1.8937393" // changed to accomodate libs
 
@@ -24,7 +24,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.u3L1J.only_job"
+        applicationId = "com.u3L1J.jobfindr"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 23

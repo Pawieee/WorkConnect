@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "794494904809",
-    "project_id": "onlyjob-13c80",
-    "storage_bucket": "onlyjob-13c80.appspot.com"
+    "project_number": "541785312457",
+    "project_id": "jobfindr-e5eb8",
+    "storage_bucket": "jobfindr-e5eb8.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:794494904809:android:e72f1f8ec5684fae0cc378",
+        "mobilesdk_app_id": "1:541785312457:android:73dfbbd3bf96535cd51118",
         "android_client_info": {
-          "package_name": "com.u3L1J.only_job"
+          "package_name": "com.u3L1J.jobfindr"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCnHyRy2Sbyk6-gdMzZjvOsEkORyR3jQg4"
+          "current_key": "AIzaSyC5aCkqbUlGTlxNI9K6--aKaxx1kbuiSSU"
         }
       ],
       "services": {
