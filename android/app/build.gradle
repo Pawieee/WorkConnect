@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.u3L1J.only_job"
+    namespace = "com.u3L1J.jobfindr"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "25.1.8937393" // changed to accomodate libs
 
