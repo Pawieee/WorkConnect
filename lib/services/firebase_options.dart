@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -47,28 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA-IIlX-yGYVrnl9tsktHDkLiEtfiBq4mQ',
-    appId: '1:794494904809:web:83ea5ff3b0f62f1e0cc378',
-    messagingSenderId: '794494904809',
-    projectId: 'onlyjob-13c80',
-    authDomain: 'onlyjob-13c80.firebaseapp.com',
-    storageBucket: 'onlyjob-13c80.appspot.com',
+    apiKey: 'AIzaSyD6KnmptwyqvAHLgXTg4Oe66cc169h7c8w',
+    appId: '1:541785312457:web:d4b599f563294859d51118',
+    messagingSenderId: '541785312457',
+    projectId: 'jobfindr-e5eb8',
+    authDomain: 'jobfindr-e5eb8.firebaseapp.com',
+    storageBucket: 'jobfindr-e5eb8.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCnHyRy2Sbyk6-gdMzZjvOsEkORyR3jQg4',
-    appId: '1:794494904809:android:e72f1f8ec5684fae0cc378',
-    messagingSenderId: '794494904809',
-    projectId: 'onlyjob-13c80',
-    storageBucket: 'onlyjob-13c80.appspot.com',
+    apiKey: 'AIzaSyC5aCkqbUlGTlxNI9K6--aKaxx1kbuiSSU',
+    appId: '1:541785312457:android:73dfbbd3bf96535cd51118',
+    messagingSenderId: '541785312457',
+    projectId: 'jobfindr-e5eb8',
+    storageBucket: 'jobfindr-e5eb8.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCPDuw2im1mZ-2SRxouvt55Jc-tBxiDa4c',
-    appId: '1:794494904809:ios:bcb8b0a991e231e40cc378',
-    messagingSenderId: '794494904809',
-    projectId: 'onlyjob-13c80',
-    storageBucket: 'onlyjob-13c80.appspot.com',
+    apiKey: 'AIzaSyCF5znGnvTD5FJ4Dv767cZ4t9gtVqMK0eg',
+    appId: '1:541785312457:ios:fe8b8562052a0b16d51118',
+    messagingSenderId: '541785312457',
+    projectId: 'jobfindr-e5eb8',
+    storageBucket: 'jobfindr-e5eb8.firebasestorage.app',
     iosBundleId: 'com.3L1J.onlyJob',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCF5znGnvTD5FJ4Dv767cZ4t9gtVqMK0eg',
+    appId: '1:541785312457:ios:fe8b8562052a0b16d51118',
+    messagingSenderId: '541785312457',
+    projectId: 'jobfindr-e5eb8',
+    storageBucket: 'jobfindr-e5eb8.firebasestorage.app',
+    iosBundleId: 'com.3L1J.onlyJob',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyD6KnmptwyqvAHLgXTg4Oe66cc169h7c8w',
+    appId: '1:541785312457:web:243cbae4cf0e9aa6d51118',
+    messagingSenderId: '541785312457',
+    projectId: 'jobfindr-e5eb8',
+    authDomain: 'jobfindr-e5eb8.firebaseapp.com',
+    storageBucket: 'jobfindr-e5eb8.firebasestorage.app',
   );
 }
